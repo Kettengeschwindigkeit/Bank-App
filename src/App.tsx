@@ -1,10 +1,24 @@
-import { useEffect, useRef, useState } from 'react'
+import { FC, ReactComponentElement, memo, useEffect, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { useRedGroup } from './useRedGroup'
 
-function App() {
+const App: FC = () => {
   const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    console.log('DO')
+  }, [count])
+
+  useEffect(() => {
+    setCount(prev => prev + 1)
+  }, [])
+
+  const video = useRef<HTMLVideoElement>()
+  video.current?.play().then(() => {})
+
+  const { channelName, setChannelName } = useRedGroup()
 
   return (
     <div className="App">
@@ -32,4 +46,4 @@ function App() {
   )
 }
 
-export default App
+export default memo(App)
