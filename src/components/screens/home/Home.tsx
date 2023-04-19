@@ -1,7 +1,8 @@
 import { FC } from 'react'
 import { Box, Center, Flex, Heading, Text } from '@chakra-ui/react'
+import Balance from './Balance'
 
-const user = {
+export const user = {
     name: 'John Smith',
     balance: 8640
 }
@@ -13,12 +14,7 @@ const Home: FC = () => {
                 <Text fontSize='xl' color='whiteAlpha.500'>Good morning!</Text>
                 <Heading fontSize='2xl'>{user.name}</Heading>
             </Box>
-            <Box mt={4}>
-                <Flex alignItems='center' justifyContent='center' direction='column'>
-                    <Heading fontSize='5xl'>$ {user.balance}</Heading>
-                    <Text fontSize='xl' color='whiteAlpha.500'>Balance</Text>
-                </Flex>
-            </Box>
+            <Balance />
         </Box>
     )
 }
